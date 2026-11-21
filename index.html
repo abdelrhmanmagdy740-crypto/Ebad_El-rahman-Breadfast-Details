@@ -453,7 +453,7 @@
       <div class="calc-grid">
         <div class="calc-field">
           <label for="calc-system">نوع النظام</label>
-          <select id="calc-system" onchange="updateCalc()">
+          <select id="calc-system" onchange="populateCalcZones()">
             <option value="mart-bike">المارت - موتوسيكل (Mart - Bike)</option>
             <option value="food-bike">المطاعم - موتوسيكل (Food - Bike)</option>
             <option value="mart-bc">المارت - عجل / وكر (Mart - Bc & WLL)</option>
@@ -1042,27 +1042,28 @@ function populateCalcZones() {
   const label = document.getElementById("calc-input-label");
   const inp = document.getElementById("calc-orders");
 
+  wrap.style.display = "block";
+  label.textContent = "عدد الأوردرات الأسبوعية";
+
   if (sys === "mart-bike") {
-    wrap.style.display = "block";
-    label.textContent = "عدد الأوردرات الأسبوعية";
     inp.value = 120;
     sel.innerHTML = `
-      <option value="wide_z1">المناطق الواسعة — منطقة 1 (14.7 ج/أوردر، إجمالي شهري 4,724 ج)</option>
-      <option value="wide_z2">المناطق الواسعة — منطقة 2 (20.2 ج/أوردر، إجمالي شهري 4,724 ج)</option>
-      <option value="wide_z3">المناطق الواسعة — منطقة 3 (25.7 ج/أوردر، إجمالي شهري 4,724 ج)</option>
-      <option value="tagamoa_z1">التجمع والرحاب — منطقة 1 (14.7 ج/أوردر، إجمالي شهري 5,724 ج)</option>
-      <option value="tagamoa_z2">التجمع والرحاب — منطقة 2 (20.2 ج/أوردر، إجمالي شهري 5,724 ج)</option>
-      <option value="tagamoa_z3">التجمع والرحاب — منطقة 3 (25.7 ج/أوردر، إجمالي شهري 5,724 ج)</option>
+      <option value="wide_z1">المناطق الواسعة (أكتوبر، زايد، عبور، شروق، مدينتي، مدينة نصر، مصر الجديدة) — 14.7 ج/أوردر</option>
+      <option value="wide_z2">المناطق الواسعة — 20.2 ج/أوردر</option>
+      <option value="wide_z3">المناطق الواسعة — 25.7 ج/أوردر</option>
+      <option value="tagamoa_z1">التجمع والرحاب — 14.7 ج/أوردر</option>
+      <option value="tagamoa_z2">التجمع والرحاب — 20.2 ج/أوردر</option>
+      <option value="tagamoa_z3">التجمع والرحاب — 25.7 ج/أوردر</option>
     `;
   } else if (sys === "food-bike") {
-    wrap.style.display = "block";
-    label.textContent = "عدد الأوردرات الأسبوعية";
     inp.value = 120;
-    sel.innerHTML = foodData.map(d => `<option value="${d.id}">${d.zone} (سعر الأوردر ${d.price} ج)</option>`).join("");
+    sel.innerHTML = foodData.map(d => `<option value="${d.id}">${d.zone} — ${d.price} ج/أوردر</option>`).join("");
   } else {
-    wrap.style.display = "none";
-    label.textContent = "عدد الأوردرات الأسبوعية (عجل / وكر)";
     inp.value = 90;
+    sel.innerHTML = `
+      <option value="hegazy">فرع الحجاز (هليوبوليس 5 / 4) — 10 / 14 / 18 ج/أوردر</option>
+      <option value="kobba">فرع حدائق القبة (هليوبوليس 5 / 4) — 10 / 14 / 18 ج/أوردر</option>
+    `;
   }
   updateCalc();
 }
