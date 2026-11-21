@@ -892,15 +892,15 @@ const custodyData = [
   { area: "مدينة نصر", sys: "المطاعم - Food", hq: "حي السفارات - بجوار مسجد أحباب الرسول آخر سور شركة إنبي ويسأل على المسجد المقر جنب باب المسجد", time: "يومياً", map: "https://www.google.com/maps/place/30%C2%B002'23.8%22N+31%C2%B020'26.9%22E/@30.0399444,31.3408056,619m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0399444!4d31.3408056!5m1!1e2?hl=en&entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" },
   { area: "مصر الجديدة", sys: "المطاعم - Food", hq: "حي السفارات - بجوار مسجد أحباب الرسول آخر سور شركة إنبي ويسأل على المسجد المقر جنب باب المسجد", time: "يومياً", map: "https://www.google.com/maps/place/30%C2%B002'23.8%22N+31%C2%B020'26.9%22E/@30.0399444,31.3408056,619m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0399444!4d31.3408056!5m1!1e2?hl=en&entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" },
   { area: "التجمع والرحاب", sys: "المطاعم - Food", hq: "مول سيتي بلازا – فوق مطعم الأصيل الدمشقي – الدور الرابع – الشقة يمين الأسانسير", time: "يومياً", map: "https://maps.app.goo.gl/5Qu36PL87GQZ2a2Q6" },
-  { area: "مدينتي", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "يومياً", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "مدينتي", sys: "المطاعم - Food", hq: 'فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"', time: "يومياً", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
   { area: "مهندسين", sys: "المطاعم - Food", hq: "فرع العجوزة", time: "الأحد & الاثنين & الثلاثاء", map: "https://maps.app.goo.gl/y7bQZGrCmZK7bnJG7" },
   { area: "الهرم وفيصل", sys: "المطاعم - Food", hq: "فرع العجوزة", time: "الخميس", map: "https://maps.app.goo.gl/y7bQZGrCmZK7bnJG7" },
   { area: "حدائق الأهرام", sys: "المطاعم - Food", hq: "فرع حدائق الأهرام", time: "الثلاثاء", map: "https://maps.app.goo.gl/q13XFA422DCSMTYZ7" },
   { area: "أكتوبر", sys: "المطاعم - Food", hq: "فرع أكتوبر 6", time: "يومياً", map: "https://maps.app.goo.gl/VrvbvBPWPCnWYDdk9" },
-  { area: "الشروق", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "الشروق", sys: "المطاعم - Food", hq: 'فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"', time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
   { area: "زايد", sys: "المطاعم - Food", hq: "أمام مديرية أمن الجيزة - الصحراوي", time: "يومياً", map: "https://maps.app.goo.gl/SrfjGoQy7ZddWsSY8" },
   { area: "المقطم", sys: "المطاعم - Food", hq: "الزهراء", time: "بيتبلغ في المحاضرة", map: "https://maps.app.goo.gl/DNfZEcUAk5x2xX416" },
-  { area: "العبور", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "العبور", sys: "المطاعم - Food", hq: 'فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"', time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
   { area: "الإسكندرية", sys: "المطاعم - Food", hq: "فرع لوران - شارع الإقبال أول شمال شارع اسمه محمد عثمان أول ما يدخل هيلاقي على شماله الفرع", time: "السبت & الأربعاء", map: "https://maps.app.goo.gl/8yKjnE2ogNoKxraWA" }
 ];
 
@@ -912,18 +912,31 @@ function showToast(msg) {
 }
 
 function copyText(text) {
-  navigator.clipboard.writeText(text).then(() => showToast("تم نسخ التفاصيل بنجاح!"));
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => showToast("تم نسخ التفاصيل بنجاح!")).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand("copy");
+    showToast("تم نسخ التفاصيل بنجاح!");
+  } catch (e) {
+    showToast("تعذر النسخ تلقائياً");
+  }
+  document.body.removeChild(ta);
 }
 
 function copyComparison() {
-  const txt = comparisonData.map(r => `• ${r[0]}:
-  - مارت: ${r[1]}
-  - مطاعم: ${r[2]}`).join("
-
-");
-  copyText("مقارنة أنظمة بريد فاست (مارت vs مطاعم):
-
-" + txt);
+  const txt = comparisonData.map(r => `• ${r[0]}:\n  - مارت: ${r[1]}\n  - مطاعم: ${r[2]}`).join("\n\n");
+  copyText("مقارنة أنظمة بريد فاست (مارت vs مطاعم):\n\n" + txt);
 }
 
 function renderComparison() {
@@ -977,12 +990,7 @@ function renderLectures() {
     return okType && okQ;
   });
   document.getElementById("lectures-grid").innerHTML = list.map(item => {
-    const shareText = `محاضرة بريد فاست (${item.sys === 'Food' ? 'مطاعم' : 'مارت'}) - ${item.title}
-المقر: ${item.hq}
-الموعد: ${item.time}
-الأيام: ${item.days}
-العلامة: ${item.mark}
-اللوكيشن: ${item.map}`;
+    const shareText = `محاضرة بريد فاست (${item.sys === 'Food' ? 'مطاعم' : 'مارت'}) - ${item.title}\nالمقر: ${item.hq}\nالموعد: ${item.time}\nالأيام: ${item.days}\nالعلامة: ${item.mark}\nاللوكيشن: ${item.map}`;
     return `
       <div class="info-card">
         <div>
@@ -1007,10 +1015,7 @@ function renderCustody() {
   const q = document.getElementById("custody-search").value.trim();
   const list = custodyData.filter(item => !q || item.area.includes(q) || item.hq.includes(q) || item.time.includes(q));
   document.getElementById("custody-grid").innerHTML = list.map(item => {
-    const shareText = `استلام عهدة بريد فاست (${item.sys}) - ${item.area}
-المقر: ${item.hq}
-المواعيد: ${item.time}
-اللوكيشن: ${item.map}`;
+    const shareText = `استلام عهدة بريد فاست (${item.sys}) - ${item.area}\nالمقر: ${item.hq}\nالمواعيد: ${item.time}\nاللوكيشن: ${item.map}`;
     return `
       <div class="info-card">
         <div>
