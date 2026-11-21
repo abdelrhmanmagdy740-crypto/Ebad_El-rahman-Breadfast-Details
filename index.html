@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منصة بريد فاست (Breadfast) — دليل التعيين والمرتبات والمقرات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bf-purple: #2B0E4A;
+      --bf-purple-dark: #1A0630;
+      --bf-pink: #E6007E;
+      --bf-pink-soft: #FDF2F8;
+      --bf-gold: #F59E0B;
+      --bf-bg: #F8FAFC;
+      --bf-card: #FFFFFF;
+      --bf-text: #0F172A;
+      --bf-muted: #64748B;
+      --bf-border: #E2E8F0;
+      --bf-success: #10B981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bf-bg);
+      color: var(--bf-text);
+      line-height: 1.7;
+    }
+    a { color: var(--bf-pink); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 6, 48, 0.96);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      border-bottom: 2px solid var(--bf-pink);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--bf-pink);
+      color: #fff;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #E2E8F0;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bf-purple-dark) 0%, var(--bf-purple) 55%, #4C1D95 100%);
+      color: #fff;
+      padding: 3rem 1.25rem 3.5rem;
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      color: #E2E8F0;
+      max-width: 780px;
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+    }
+    .stat-card .label { font-size: 0.85rem; color: #CBD5E1; }
+    .stat-card .val { font-size: 1.45rem; font-weight: 800; color: #FDE68A; margin-top: 0.2rem; }
+    .stat-card .sub { font-size: 0.82rem; color: #E2E8F0; }
+
+    /* Container & Sections */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+    .section {
+      margin-bottom: 2.75rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      border-right: 5px solid var(--bf-pink);
+      padding-right: 0.85rem;
+    }
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--bf-purple);
+    }
+    .section-header p {
+      color: var(--bf-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Card & Table */
+    .card {
+      background: var(--bf-card);
+      border: 1px solid var(--bf-border);
+      border-radius: 16px;
+      padding: 1.35rem;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      margin-bottom: 1.25rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--bf-border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #fff;
+    }
+    th {
+      background: var(--bf-purple);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.8rem 0.9rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: 1px solid var(--bf-border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #FAF5FF; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    .tab-btn {
+      background: #fff;
+      border: 1.5px solid var(--bf-border);
+      color: var(--bf-purple);
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--bf-pink);
+      border-color: var(--bf-pink);
+      color: #fff;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Controls & Badges */
+    .controls {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    input[type="text"], input[type="number"], select {
+      font-family: inherit;
+      padding: 0.6rem 0.85rem;
+      border: 1.5px solid var(--bf-border);
+      border-radius: 10px;
+      font-size: 0.92rem;
+      background: #fff;
+      color: var(--bf-text);
+    }
+    .btn {
+      font-family: inherit;
+      background: var(--bf-purple);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: 0.2s;
+    }
+    .btn:hover { background: var(--bf-pink); }
+    .btn-outline {
+      background: #fff;
+      color: var(--bf-purple);
+      border: 1.5px solid var(--bf-purple);
+    }
+    .btn-outline:hover {
+      background: var(--bf-purple);
+      color: #fff;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .badge-pink { background: var(--bf-pink-soft); color: var(--bf-pink); }
+    .badge-purple { background: #EDE9FE; color: var(--bf-purple); }
+    .badge-green { background: #D1FAE5; color: #065F46; }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--bf-border);
+      border-radius: 14px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .info-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--bf-purple);
+    }
+    .info-card p { font-size: 0.88rem; color: #334155; }
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    /* Calculator */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--bf-purple);
+    }
+    .calc-field input, .calc-field select { width: 100%; }
+    .calc-result {
+      background: linear-gradient(135deg, #FAF5FF, #FDF2F8);
+      border: 1.5px solid #F5D0FE;
+      border-radius: 14px;
+      padding: 1.15rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+    .res-box .r-title { font-size: 0.83rem; color: var(--bf-muted); }
+    .res-box .r-val { font-size: 1.4rem; font-weight: 800; color: var(--bf-purple); }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .rule-box {
+      background: #F8FAFC;
+      border: 1px solid var(--bf-border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .rule-box h4 { color: var(--bf-pink); font-size: 0.98rem; margin-bottom: 0.35rem; }
+    .rule-box p { font-size: 0.88rem; color: #334155; }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--bf-purple-dark);
+      color: #fff;
+      padding: 0.7rem 1.15rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: 0.25s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    footer {
+      background: var(--bf-purple-dark);
+      color: #CBD5E1;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="brand">
+      <span>بريد فاست Breadfast</span>
+      <span class="brand-badge">دليل التعيين والمرتبات</span>
+    </div>
+    <div class="nav-links">
+      <a href="#comparison">مقارنة الأنظمة</a>
+      <a href="#systems">أنظمة العمل والحاسبة</a>
+      <a href="#lectures">المحاضرات</a>
+      <a href="#custody">استلام العهدة</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>منصة تفاصيل التعيين والمرتبات والمقرات — بريد فاست</h1>
+    <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل، المطاعم موتوسيكل، المارت عجل وووكر)، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">المارت (موتوسيكل)</div>
+        <div class="val">4,724 – 5,724 ج</div>
+        <div class="sub">أساسي + بدلات شهرياً + خدمة وبونص أسبوعي</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">المطاعم (موتوسيكل)</div>
+        <div class="val">36 – 42 ج / أوردر</div>
+        <div class="sub">بونص أسبوعي (أوردرات أو إتاحة) + ترحيبي حتى 4,000 ج</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">المارت (عجل / وكر)</div>
+        <div class="val">4,800 ج شهرياً</div>
+        <div class="sub">منفصل عن شرائح توصيل أسبوعية (10 – 18 ج)</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">نظام الصرف المعتمد</div>
+        <div class="val">كارت / محفظة DoPay</div>
+        <div class="sub">تقفيل شهري من 26 إلى 25 وصرف من 1 إلى 5</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 1. Comparison Section -->
+  <section id="comparison" class="section">
+    <div class="section-header">
+      <div>
+        <h2>أولاً: مقارنة شاملة بين أنظمة التعيين (المارت vs المطاعم)</h2>
+        <p>ملخص الفروق الأساسية في الرواتب والحوافز والتأمينات وساعات العمل</p>
+      </div>
+      <button class="btn btn-outline" onclick="copyComparison()">نسخ ملخص المقارنة</button>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>بريد فاست (مارت) — Breadfast Mart</th>
+              <th>بريد فاست (مطاعم) — Breadfast Food</th>
+            </tr>
+          </thead>
+          <tbody id="comparison-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Systems & Calculator Section -->
+  <section id="systems" class="section">
+    <div class="section-header">
+      <div>
+        <h2>ثانياً: أنظمة العمل التفصيلية وحاسبة الدخل</h2>
+        <p>اختر النظام لعرض الجداول الكاملة أو استخدم الحاسبة لتقدير الدخل</p>
+      </div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="card">
+      <h3 style="color:var(--bf-purple); font-size:1.1rem; font-weight:800; margin-bottom:0.85rem;">حاسبة الدخل التقديرية</h3>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="calc-system">نوع النظام</label>
+          <select id="calc-system" onchange="updateCalc()">
+            <option value="mart-bike">المارت - موتوسيكل (Mart - Bike)</option>
+            <option value="food-bike">المطاعم - موتوسيكل (Food - Bike)</option>
+            <option value="mart-bc">المارت - عجل / وكر (Mart - Bc & WLL)</option>
+          </select>
+        </div>
+        <div class="calc-field" id="calc-zone-wrap">
+          <label for="calc-zone">المنطقة / الزون</label>
+          <select id="calc-zone" onchange="updateCalc()"></select>
+        </div>
+        <div class="calc-field">
+          <label id="calc-input-label" for="calc-orders">عدد الأوردرات الأسبوعية</label>
+          <input type="number" id="calc-orders" value="120" min="0" max="500" oninput="updateCalc()" />
+        </div>
+      </div>
+      <div class="calc-result" id="calc-output"></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-mart-bike', this)">1. نظام المارت — موتوسيكل (Mart - Bike)</button>
+      <button class="tab-btn" onclick="switchTab('tab-food-bike', this)">2. نظام المطاعم — موتوسيكل (Food - Bike)</button>
+      <button class="tab-btn" onclick="switchTab('tab-mart-bc', this)">3. نظام المارت — عجل / وكر (Mart - Bc & WLL)</button>
+    </div>
+
+    <!-- Tab 1: Mart Bike -->
+    <div id="tab-mart-bike" class="tab-panel active">
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">أولاً: المرتب الشهري الأساسي والبدلات (موتوسيكل)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>م</th>
+                <th>المناطق / الفروع</th>
+                <th>الأساسي</th>
+                <th>بدل نت</th>
+                <th>بدل انتقال</th>
+                <th>الإجمالي الشهري</th>
+                <th>ملاحظات وشروط الاستحقاق</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>المناطق الواسعة:</strong> أكتوبر – زايد – عبور – شروق – مدينتي - مدينة نصر - مصر الجديدة</td>
+                <td>4,224 جنيه</td>
+                <td>100 جنيه</td>
+                <td>400 جنيه</td>
+                <td><span class="badge badge-green">4,724 جنيه</span></td>
+                <td>يُحتسب بعد إكمال 6 أيام عمل كاملة (Full Time)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>فروع التجمع والرحاب:</strong> التجمع 3 (مستثمرين جنوبية)، التجمع 4 (وراء Waterway)، التجمع 5 (اللوتس)، التجمع 6 (الأندلس)، الرحاب</td>
+                <td>4,224 جنيه</td>
+                <td>100 جنيه</td>
+                <td>1,400 جنيه</td>
+                <td><span class="badge badge-pink">5,724 جنيه</span></td>
+                <td>بدل انتقال مخصص لفروع التجمع والرحاب</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">ثانياً: المرتب الأسبوعي — «الخدمة على الأوردرات» حسب الزون</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Zone</th>
+                <th>نطاق المسافة</th>
+                <th>متوسط المسافة</th>
+                <th>سعر الأوردر (موتوسيكل)</th>
+                <th>بدل كرتونة مياه</th>
+                <th>بدل أوردر صيدلية</th>
+                <th>طريقة السحب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>منطقة [1]</strong></td>
+                <td>إلى 5 كيلومتر</td>
+                <td>2.5 كم</td>
+                <td><strong>14.7 جنيه</strong></td>
+                <td>+3 جنيه / كرتونة</td>
+                <td>+2 إلى 3 جنيه / أوردر</td>
+                <td>أسبوعياً عبر برنامج Logistics</td>
+              </tr>
+              <tr>
+                <td><strong>منطقة [2]</strong></td>
+                <td>من 5 إلى 10 كيلومتر</td>
+                <td>7.5 كم</td>
+                <td><strong>20.2 جنيه</strong></td>
+                <td>+3 جنيه / كرتونة</td>
+                <td>+2 إلى 3 جنيه / أوردر</td>
+                <td>أسبوعياً عبر برنامج Logistics</td>
+              </tr>
+              <tr>
+                <td><strong>منطقة [3]</strong></td>
+                <td>من 10 إلى 15 كيلومتر</td>
+                <td>12.5 كم</td>
+                <td><strong>25.7 جنيه</strong></td>
+                <td>+3 جنيه / كرتونة</td>
+                <td>+2 إلى 3 جنيه / أوردر</td>
+                <td>أسبوعياً عبر برنامج Logistics</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">ثالثاً: مستويات البونص الأسبوعي حسب عدد الأوردرات (متغيرة من فرع لآخر)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>المستوى</th>
+                <th>شريحة الأوردرات الأسبوعية</th>
+                <th>معامل سعر الأوردر</th>
+                <th>سعر الأوردر بالمثال</th>
+                <th>أوردرات المثال</th>
+                <th>قيمة البونص بالمثال</th>
+                <th>ملاحظات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>المستوى [1]</strong></td>
+                <td>0 – 80 أوردر</td>
+                <td>1</td>
+                <td>10.7 جنيه</td>
+                <td>80</td>
+                <td>856 جنيه</td>
+                <td>المثال: 80 أوردر × 10.70 جنيه</td>
+              </tr>
+              <tr>
+                <td><strong>المستوى [2]</strong></td>
+                <td>81 – 100 أوردر</td>
+                <td>1.4</td>
+                <td>14.98 جنيه</td>
+                <td>100</td>
+                <td>2,097.2 جنيه</td>
+                <td>المثال: 100 أوردر (من 81 إلى 100) × 14.98 جنيه</td>
+              </tr>
+              <tr>
+                <td><strong>المستوى [3]</strong></td>
+                <td>أكثر من 100 أوردر</td>
+                <td>1.8</td>
+                <td>19.26 جنيه</td>
+                <td>120</td>
+                <td>4,160.16 جنيه</td>
+                <td>المثال: 120 أوردر (فوق 100 عند إجمالي 120) × 19.26 جنيه</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rules-grid">
+          <div class="rule-box">
+            <h4>الحافز الربع سنوي</h4>
+            <p>1 جنيه × عدد الأوردرات خلال 3 شهور؛ يُصرف بعد إتمام 3 شهور عمل مع مرتب الشهر الرابع (أشهر 4، 7، 10، 1).</p>
+          </div>
+          <div class="rule-box">
+            <h4>حوافز إضافية</h4>
+            <p>أونلاين تيبس + أيام العروض (×1.5 حيث تُضرب الحوافز الأسبوعية في 1.5) + مسابقة أفضل DA.</p>
+          </div>
+          <div class="rule-box">
+            <h4>مواعيد العمل والراحة</h4>
+            <p>9 ساعات عمل (8 ساعات في رمضان) + نصف ساعة راحة؛ إجازة أسبوعية يوم واحد حسب حاجة الفرع؛ متوسط 3 أوردرات/ساعة (144 أسبوعياً).</p>
+          </div>
+          <div class="rule-box">
+            <h4>صرف المرتب الشهري</h4>
+            <p>التقفيل من 26 إلى 25؛ الصرف من يوم 1 إلى 5 عبر محفظة DoPay (ضرورة تسجيلها في الـ Form)؛ الاستقالة قبل 6 أيام عمل تحسب الخدمة فقط.</p>
+          </div>
+          <div class="rule-box">
+            <h4>التأمين والإجازات</h4>
+            <p>21 يوم إجازة سنوية + تأمين صحي بعد 3 شهور؛ المرضي 75% من الأساسي أول 3 شهور، وبعدها خصم أول 6 أيام من الرصيد ثم 75%.</p>
+          </div>
+          <div class="rule-box">
+            <h4>الغياب والتأخير</h4>
+            <p>الغياب = خصم يومين؛ التأخير = 2 ساعة ثم 4 ساعات؛ 3 أذونات تأخير شهرياً (بحد أقصى ساعة)؛ خصومات التسليم من اليوم 4 والغياب من اليوم 2.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Food Bike -->
+    <div id="tab-food-bike" class="tab-panel">
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.5rem;">نظام الدفع والبونص الأسبوعي لجميع المناطق — موتوسيكل (بريد فاست مطاعم)</h3>
+        <div class="controls">
+          <input type="text" id="food-search" placeholder="ابحث باسم المنطقة..." oninput="renderFoodTable()" />
+          <select id="food-bonus-filter" onchange="renderFoodTable()">
+            <option value="all">كل أنواع البونص</option>
+            <option value="أوردرات">بونص أوردرات أسبوعي</option>
+            <option value="إتاحة">بونص إتاحة أسبوعي</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>م</th>
+                <th>المنطقة</th>
+                <th>نوع البونص</th>
+                <th>الباقات</th>
+                <th>سعر الأوردر</th>
+                <th>المتوقع الأسبوعي</th>
+                <th>الحد الأدنى</th>
+                <th>المستوى 3</th>
+                <th>المستوى 2</th>
+                <th>المستوى 1</th>
+              </tr>
+            </thead>
+            <tbody id="food-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Mart Bc & WLL -->
+    <div id="tab-mart-bc" class="tab-panel">
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">أولاً: الفروع والأعداد المطلوبة ونطاق الزون (مصر الجديدة — عجل / وكر)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>م</th>
+                <th>الفرع</th>
+                <th>نطاق الزون</th>
+                <th>عدد العجل المطلوب</th>
+                <th>عدد الوكر المطلوب</th>
+                <th>إجمالي المطلوب</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>فرع الحجاز</strong></td>
+                <td>هليوبوليس 5 / 4 (زون الحجاز أو حدائق القبة)</td>
+                <td>6</td>
+                <td>1</td>
+                <td><span class="badge badge-purple">7</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>فرع حدائق القبة</strong></td>
+                <td>هليوبوليس 5 / 4 (زون الحجاز أو حدائق القبة)</td>
+                <td>6</td>
+                <td>1</td>
+                <td><span class="badge badge-purple">7</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">ثانياً: شرائح خدمة التوصيل الأسبوعية (منفصلة تماماً عن الراتب الشهري)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الشريحة</th>
+                <th>عدد الأوردرات الأسبوعية</th>
+                <th>سعر الأوردر</th>
+                <th>نظام الصرف</th>
+                <th>الحد الأقصى للشريحة</th>
+                <th>إجمالي الشريحة عند الاكتمال</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>الشريحة الأولى</strong></td>
+                <td>من 1 إلى 60 أوردر</td>
+                <td>10 جنيه</td>
+                <td>قبض أسبوعي</td>
+                <td>60</td>
+                <td>600 جنيه</td>
+              </tr>
+              <tr>
+                <td><strong>الشريحة الثانية</strong></td>
+                <td>من 61 إلى 80 أوردر</td>
+                <td>14 جنيه</td>
+                <td>قبض أسبوعي</td>
+                <td>80</td>
+                <td>1,120 جنيه</td>
+              </tr>
+              <tr>
+                <td><strong>الشريحة الثالثة</strong></td>
+                <td>فوق الـ 80 أوردر</td>
+                <td>18 جنيه</td>
+                <td>قبض أسبوعي</td>
+                <td>100</td>
+                <td>1,800 جنيه</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--bf-purple); font-weight:800; margin-bottom:0.75rem;">ثالثاً: الراتب الشهري، نظام العمل، نطاق المسافات، والمزايا</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>البند</th>
+                <th>التفاصيل</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>الراتب الأساسي الشهري</strong></td><td>4,800 جنيه شهرياً (منفصل عن قبض الخدمة الأسبوعي)</td></tr>
+              <tr><td><strong>نظام وساعات العمل</strong></td><td>نظام الشيفت – 9 ساعات يومياً</td></tr>
+              <tr><td><strong>نطاق المسافات (الزون)</strong></td><td>زون العجل حتى 3 كم | زون الفوت (الوكر) حتى 1 كم</td></tr>
+              <tr><td><strong>السن المطلوب</strong></td><td>من 18 سنة إلى 40 سنة</td></tr>
+              <tr><td><strong>المكافآت الإضافية</strong></td><td>مكافأة ربع سنوية</td></tr>
+              <tr><td><strong>التأمين والإجازات</strong></td><td>تأمين طبي شامل + رصيد إجازات سنوي بعد إتمام 3 شهور عمل</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Lectures Section -->
+  <section id="lectures" class="section">
+    <div class="section-header">
+      <div>
+        <h2>ثالثاً: مواعيد وأماكن المحاضرات (Lecture)</h2>
+        <p>فلتر حسب النظام أو ابحث بالمنطقة أو المقر مع فتح اللوكيشن مباشرة</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="controls">
+        <select id="lec-type" onchange="renderLectures()">
+          <option value="all">كل المحاضرات (مطاعم + مارت)</option>
+          <option value="Food">محاضرات المطاعم (Food)</option>
+          <option value="Mart">محاضرات المارت (Mart)</option>
+        </select>
+        <input type="text" id="lec-search" placeholder="ابحث بالمنطقة أو المقر أو العلامة المميزة..." oninput="renderLectures()" />
+      </div>
+      <div id="lectures-grid" class="cards-grid"></div>
+    </div>
+  </section>
+
+  <!-- 4. Custody Section -->
+  <section id="custody" class="section">
+    <div class="section-header">
+      <div>
+        <h2>رابعاً: أماكن ومواعيد استلام العهدة (المطاعم — Food)</h2>
+        <p>جميع مقرات ومواعيد الاستلام حسب المنطقة مع روابط خرائط جوجل</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="controls">
+        <input type="text" id="custody-search" placeholder="ابحث بالمنطقة أو المقر أو المواعيد..." oninput="renderCustody()" />
+      </div>
+      <div id="custody-grid" class="cards-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  منصة بريد فاست (Breadfast) التفاعلية — جميع البيانات مستخرجة من ملف تفاصيل التعيين والرواتب والمقرات.
+</footer>
+
+<div id="toast" class="toast">تم النسخ إلى الحافظة</div>
+
+<script>
+const comparisonData = [
+  ["المرتب الثابت", "يبدأ من (4,725 جنيه) إلى (5,725 جنيه) حسب المنطقة", "❌ لا يوجد"],
+  ["نظام القبض", "يتم سحب المرتب والعمولة من خلال كارت DoPay", "يتم سحب المرتب والعمولة من خلال كارت DoPay"],
+  ["بونص ترحيبي", "❌ لا يوجد", "يبدأ من (2,000 جنيه) إلى (4,000 جنيه) حسب المنطقة وعدد أيام العمل"],
+  ["بونص يومي", "❌ لا يوجد", "❌ لا يوجد"],
+  ["بونص أسبوعي", "أوردر × (1.4) إلى أوردر × (1.8)", "يبدأ من (300 جنيه) إلى (1,800 جنيه) حسب المنطقة"],
+  ["بونص شهري", "❌ لا يوجد", "❌ لا يوجد"],
+  ["بونص ربع سنوي", "1 جنيه على كل أوردر محقق خلال الـ (3 شهور)", "❌ لا يوجد"],
+  ["عمولة الأوردر", "تبدأ من (15 جنيه) إلى (30 جنيه) حسب المنطقة", "تبدأ من (36 جنيه) إلى (42 جنيه) حسب المنطقة"],
+  ["متوسط أوردرات الأسبوع", "يبدأ من (140 أوردر) إلى (160 أوردر) حسب المنطقة والفرع", "يبدأ من (120 أوردر) إلى (150 أوردر) حسب المنطقة"],
+  ["تأمين طبي", "✅ متاح", "❌ غير متاح"],
+  ["تأمين اجتماعي", "✅ متاح", "❌ غير متاح"],
+  ["تأمين ضد الحوادث", "❌ غير متاح", "✅ متاح"],
+  ["ساعات العمل", "9 ساعات منهم نصف ساعة بريك", "8 & 10 & 12 ساعة"],
+  ["عدد أيام العمل الأسبوعية", "6 أيام", "6 أيام"],
+  ["رصيد الإجازات السنوي", "21 يوم إجازة بعد 3 شهور", "❌ لا يوجد"]
+];
+
+const foodData = [
+  { id: 1, zone: "المعادي", type: "بونص أوردرات أسبوعي", pkg: "حسب الأوردرات", price: 38, expected: 5500, minOrders: 60, l3: "60 أوردر (300 ج)", l2: "75 أوردر (450 ج)", l1: "95 أوردر (665 ج)", b3: 300, b2: 450, b1: 665, c3: 60, c2: 75, c1: 95 },
+  { id: 2, zone: "مدينة نصر", type: "بونص أوردرات أسبوعي", pkg: "حسب الأوردرات", price: 40, expected: 5700, minOrders: 70, l3: "70 أوردر (350 ج)", l2: "90 أوردر (540 ج)", l1: "110 أوردر (770 ج)", b3: 350, b2: 540, b1: 770, c3: 70, c2: 90, c1: 110 },
+  { id: 3, zone: "مصر الجديدة", type: "بونص أوردرات أسبوعي", pkg: "حسب الأوردرات", price: 40, expected: 5800, minOrders: 65, l3: "65 أوردر (325 ج)", l2: "80 أوردر (480 ج)", l1: "100 أوردر (700 ج)", b3: 325, b2: 480, b1: 700, c3: 65, c2: 80, c1: 100 },
+  { id: 4, zone: "التجمع شمال", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 42, expected: 5800, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 5, zone: "التجمع جنوب", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 42, expected: 6100, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 6, zone: "الرحاب", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 40, expected: 5500, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 7, zone: "المهندسين", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 38, expected: 5500, minOrders: 30, l3: "48 ساعة (900 ج)", l2: "60 ساعة (1100 ج)", l1: "72 ساعة (1300 ج)", b3: 900, b2: 1100, b1: 1300, h3: 48, h2: 60, h1: 72 },
+  { id: 8, zone: "الشيخ زايد", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 42, expected: 6200, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 9, zone: "أكتوبر", type: "بونص إتاحة أسبوعي", pkg: "6 أيام / 5 أيام", price: 42, expected: 6500, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 10, zone: "مدينتي", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 40, expected: 6000, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 11, zone: "حدائق الأهرام", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 36, expected: 5200, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 12, zone: "الهرم", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 38, expected: 5000, minOrders: 30, l3: "48 ساعة (1000 ج)", l2: "60 ساعة (1200 ج)", l1: "72 ساعة (1400 ج)", b3: 1000, b2: 1200, b1: 1400, h3: 48, h2: 60, h1: 72 },
+  { id: 13, zone: "الشروق", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 40, expected: 6000, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 14, zone: "المقطم", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 40, expected: 5400, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 },
+  { id: 15, zone: "العبور", type: "بونص إتاحة أسبوعي", pkg: "6 أيام فقط", price: 40, expected: 5400, minOrders: 30, l3: "48 ساعة (1200 ج)", l2: "60 ساعة (1500 ج)", l1: "72 ساعة (1800 ج)", b3: 1200, b2: 1500, b1: 1800, h3: 48, h2: 60, h1: 72 }
+];
+
+const lecturesData = [
+  { sys: "Food", title: "المعادي", time: "الساعة 2", hq: "الزهراء", days: "السبت: المعادي | الأحد - الخميس: المعادي | الجمعة: OFF", mark: "بالقرب من مسجد الروضة الشريفة - شارع إبراهيم الدويك", map: "https://maps.app.goo.gl/HmkTDD34KnuuKTdH7" },
+  { sys: "Food", title: "مدينة نصر", time: "الساعة 12", hq: "مدينة نصر", days: "السبت: OFF | الأحد - الخميس: مدينة نصر | الجمعة: OFF", mark: "بالقرب من البنك الأهلي المصري - شارع الدكتور إبراهيم أبو النجا", map: "https://maps.app.goo.gl/xy8UgURBv5q5cnc99" },
+  { sys: "Food", title: "مصر الجديدة", time: "الساعة 12", hq: "مدينة نصر", days: "السبت: OFF | الأحد - الخميس: مصر الجديدة | الجمعة: OFF", mark: "بالقرب من البنك الأهلي المصري - شارع الدكتور إبراهيم أبو النجا", map: "https://maps.app.goo.gl/xy8UgURBv5q5cnc99" },
+  { sys: "Food", title: "الشيخ زايد", time: "الساعة 3", hq: "أكتوبر 7", days: "الأحد، الثلاثاء، الأربعاء: الشيخ زايد | باقي الأيام: OFF", mark: "بالقرب من تاون مول Town Mall", map: "https://maps.app.goo.gl/KcTn6kZvybJ4uWxV9" },
+  { sys: "Food", title: "أكتوبر", time: "الساعة 3", hq: "أكتوبر 7", days: "الأحد، الثلاثاء، الخميس: أكتوبر | باقي الأيام: OFF", mark: "بالقرب من تاون مول Town Mall", map: "https://maps.app.goo.gl/KcTn6kZvybJ4uWxV9" },
+  { sys: "Food", title: "التجمعات & الرحاب", time: "الساعة 2", hq: "التجمع", days: "الأحد - الخميس: التجمعات & الرحاب | السبت والجمعة: OFF", mark: "بالقرب من مطعم الأصيل الدمشقي - شارع 17", map: "https://maps.app.goo.gl/5Qu36PL87GQZ2a2Q6" },
+  { sys: "Food", title: "شروق & مدينتي & عبور", time: "الساعة 11", hq: "شروق 1", days: "الأحد - الخميس: شروق & مدينتي & عبور | السبت والجمعة: OFF", mark: "بالقرب من Circle K الشروق", map: "https://maps.app.goo.gl/6AdwToouz1xJBkqu9" },
+  { sys: "Food", title: "مقطم", time: "الساعة 2", hq: "الزهراء", days: "السبت: مقطم | باقي الأيام: OFF", mark: "بالقرب من مسجد الروضة الشريفة - شارع إبراهيم الدويك", map: "https://maps.app.goo.gl/HmkTDD34KnuuKTdH7" },
+  { sys: "Food", title: "حدائق الأهرام", time: "الساعة 3", hq: "أكتوبر 7", days: "الثلاثاء: حدائق الأهرام | باقي الأيام: OFF", mark: "بالقرب من مسجد الروضة الشريفة - شارع إبراهيم الدويك", map: "https://maps.app.goo.gl/HmkTDD34KnuuKTdH7" },
+  { sys: "Food", title: "هرم", time: "الساعة 2", hq: "الزهراء", days: "الثلاثاء: هرم | باقي الأيام: OFF", mark: "بالقرب من تاون مول Town Mall", map: "https://maps.app.goo.gl/KcTn6kZvybJ4uWxV9" },
+  { sys: "Food", title: "وسط البلد", time: "الساعة 2", hq: "الزهراء", days: "السبت: وسط البلد | باقي الأيام: OFF", mark: "بالقرب من مسجد الروضة الشريفة - شارع إبراهيم الدويك", map: "https://maps.app.goo.gl/HmkTDD34KnuuKTdH7" },
+  { sys: "Mart", title: "التجمعات", time: "السبت 1:00 / باقي الأسبوع 12", hq: "التجمع", days: "السبت إلى الجمعة: التجمعات", mark: "بالقرب من مطعم الأصيل الدمشقي - شارع 17", map: "https://maps.app.goo.gl/5Qu36PL87GQZ2a2Q6" },
+  { sys: "Mart", title: "أكتوبر", time: "الساعة 2", hq: "أكتوبر 7", days: "السبت إلى الجمعة: أكتوبر", mark: "بالقرب من تاون مول Town Mall", map: "https://maps.app.goo.gl/KcTn6kZvybJ4uWxV9" },
+  { sys: "Mart", title: "شروق & مدينتي & عبور", time: "الساعة 2", hq: "الشروق 1", days: "الأحد - الخميس: شروق & مدينتي & عبور | السبت والجمعة: OFF", mark: "بالقرب من Circle K الشروق", map: "https://maps.app.goo.gl/6AdwToouz1xJBkqu9" },
+  { sys: "Mart", title: "الشيخ زايد", time: "الساعة 2", hq: "أكتوبر 7", days: "السبت - الخميس: الشيخ زايد | الجمعة: OFF", mark: "بالقرب من تاون مول Town Mall", map: "https://maps.app.goo.gl/KcTn6kZvybJ4uWxV9" },
+  { sys: "Mart", title: "مدينة نصر", time: "الساعة 2", hq: "مدينة نصر", days: "السبت إلى الجمعة: مدينة نصر", mark: "بالقرب من البنك الأهلي المصري - شارع الدكتور إبراهيم أبو النجا", map: "https://maps.app.goo.gl/xy8UgURBv5q5cnc99" },
+  { sys: "Mart", title: "مصر الجديدة", time: "الساعة 2", hq: "مدينة نصر", days: "السبت إلى الجمعة: مصر الجديدة", mark: "بالقرب من البنك الأهلي المصري - شارع الدكتور إبراهيم أبو النجا", map: "https://maps.app.goo.gl/xy8UgURBv5q5cnc99" }
+];
+
+const custodyData = [
+  { area: "المعادي", sys: "المطاعم - Food", hq: "الزهراء", time: "يومياً", map: "https://maps.app.goo.gl/DNfZEcUAk5x2xX416" },
+  { area: "مدينة نصر", sys: "المطاعم - Food", hq: "حي السفارات - بجوار مسجد أحباب الرسول آخر سور شركة إنبي ويسأل على المسجد المقر جنب باب المسجد", time: "يومياً", map: "https://www.google.com/maps/place/30%C2%B002'23.8%22N+31%C2%B020'26.9%22E/@30.0399444,31.3408056,619m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0399444!4d31.3408056!5m1!1e2?hl=en&entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" },
+  { area: "مصر الجديدة", sys: "المطاعم - Food", hq: "حي السفارات - بجوار مسجد أحباب الرسول آخر سور شركة إنبي ويسأل على المسجد المقر جنب باب المسجد", time: "يومياً", map: "https://www.google.com/maps/place/30%C2%B002'23.8%22N+31%C2%B020'26.9%22E/@30.0399444,31.3408056,619m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.0399444!4d31.3408056!5m1!1e2?hl=en&entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" },
+  { area: "التجمع والرحاب", sys: "المطاعم - Food", hq: "مول سيتي بلازا – فوق مطعم الأصيل الدمشقي – الدور الرابع – الشقة يمين الأسانسير", time: "يومياً", map: "https://maps.app.goo.gl/5Qu36PL87GQZ2a2Q6" },
+  { area: "مدينتي", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "يومياً", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "مهندسين", sys: "المطاعم - Food", hq: "فرع العجوزة", time: "الأحد & الاثنين & الثلاثاء", map: "https://maps.app.goo.gl/y7bQZGrCmZK7bnJG7" },
+  { area: "الهرم وفيصل", sys: "المطاعم - Food", hq: "فرع العجوزة", time: "الخميس", map: "https://maps.app.goo.gl/y7bQZGrCmZK7bnJG7" },
+  { area: "حدائق الأهرام", sys: "المطاعم - Food", hq: "فرع حدائق الأهرام", time: "الثلاثاء", map: "https://maps.app.goo.gl/q13XFA422DCSMTYZ7" },
+  { area: "أكتوبر", sys: "المطاعم - Food", hq: "فرع أكتوبر 6", time: "يومياً", map: "https://maps.app.goo.gl/VrvbvBPWPCnWYDdk9" },
+  { area: "الشروق", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "زايد", sys: "المطاعم - Food", hq: "أمام مديرية أمن الجيزة - الصحراوي", time: "يومياً", map: "https://maps.app.goo.gl/SrfjGoQy7ZddWsSY8" },
+  { area: "المقطم", sys: "المطاعم - Food", hq: "الزهراء", time: "بيتبلغ في المحاضرة", map: "https://maps.app.goo.gl/DNfZEcUAk5x2xX416" },
+  { area: "العبور", sys: "المطاعم - Food", hq: "فرع الشروق #1 "منطقة الورش خلف المشتل مصنع ٢٨"", time: "بيتبلغ في المحاضرة", map: "https://goo.gl/maps/4RBd3oLRYHWHA3cR8" },
+  { area: "الإسكندرية", sys: "المطاعم - Food", hq: "فرع لوران - شارع الإقبال أول شمال شارع اسمه محمد عثمان أول ما يدخل هيلاقي على شماله الفرع", time: "السبت & الأربعاء", map: "https://maps.app.goo.gl/8yKjnE2ogNoKxraWA" }
+];
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => showToast("تم نسخ التفاصيل بنجاح!"));
+}
+
+function copyComparison() {
+  const txt = comparisonData.map(r => `• ${r[0]}:
+  - مارت: ${r[1]}
+  - مطاعم: ${r[2]}`).join("
+
+");
+  copyText("مقارنة أنظمة بريد فاست (مارت vs مطاعم):
+
+" + txt);
+}
+
+function renderComparison() {
+  const body = document.getElementById("comparison-body");
+  body.innerHTML = comparisonData.map(r => `
+    <tr>
+      <td><strong>${r[0]}</strong></td>
+      <td>${r[1]}</td>
+      <td>${r[2]}</td>
+    </tr>
+  `).join("");
+}
+
+function switchTab(tabId, btn) {
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+  btn.classList.add("active");
+}
+
+function renderFoodTable() {
+  const q = document.getElementById("food-search").value.trim();
+  const f = document.getElementById("food-bonus-filter").value;
+  const rows = foodData.filter(d => {
+    const matchQ = !q || d.zone.includes(q);
+    const matchF = f === "all" || (f === "أوردرات" && d.type.includes("أوردرات")) || (f === "إتاحة" && d.type.includes("إتاحة"));
+    return matchQ && matchF;
+  });
+  document.getElementById("food-body").innerHTML = rows.map(d => `
+    <tr>
+      <td>${d.id}</td>
+      <td><strong>${d.zone}</strong></td>
+      <td><span class="badge ${d.type.includes('أوردرات') ? 'badge-pink' : 'badge-purple'}">${d.type}</span></td>
+      <td>${d.pkg}</td>
+      <td><strong>${d.price} ج</strong></td>
+      <td>${d.expected.toLocaleString()} ج</td>
+      <td>${d.minOrders}</td>
+      <td>${d.l3}</td>
+      <td>${d.l2}</td>
+      <td>${d.l1}</td>
+    </tr>
+  `).join("");
+}
+
+function renderLectures() {
+  const type = document.getElementById("lec-type").value;
+  const q = document.getElementById("lec-search").value.trim();
+  const list = lecturesData.filter(item => {
+    const okType = type === "all" || item.sys === type;
+    const okQ = !q || item.title.includes(q) || item.hq.includes(q) || item.mark.includes(q);
+    return okType && okQ;
+  });
+  document.getElementById("lectures-grid").innerHTML = list.map(item => {
+    const shareText = `محاضرة بريد فاست (${item.sys === 'Food' ? 'مطاعم' : 'مارت'}) - ${item.title}
+المقر: ${item.hq}
+الموعد: ${item.time}
+الأيام: ${item.days}
+العلامة: ${item.mark}
+اللوكيشن: ${item.map}`;
+    return `
+      <div class="info-card">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
+            <h3>${item.title}</h3>
+            <span class="badge ${item.sys === 'Food' ? 'badge-pink' : 'badge-purple'}">${item.sys === 'Food' ? 'مطاعم Food' : 'مارت Mart'}</span>
+          </div>
+          <p><strong>المقر:</strong> ${item.hq} | <strong>الموعد:</strong> ${item.time}</p>
+          <p><strong>الأيام:</strong> ${item.days}</p>
+          <p><strong>العلامة المميزة:</strong> ${item.mark}</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn" href="${item.map}" target="_blank" rel="noopener">فتح الخريطة</a>
+          <button class="btn btn-outline" onclick="copyText(${JSON.stringify(shareText)})">نسخ التفاصيل</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderCustody() {
+  const q = document.getElementById("custody-search").value.trim();
+  const list = custodyData.filter(item => !q || item.area.includes(q) || item.hq.includes(q) || item.time.includes(q));
+  document.getElementById("custody-grid").innerHTML = list.map(item => {
+    const shareText = `استلام عهدة بريد فاست (${item.sys}) - ${item.area}
+المقر: ${item.hq}
+المواعيد: ${item.time}
+اللوكيشن: ${item.map}`;
+    return `
+      <div class="info-card">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
+            <h3>${item.area}</h3>
+            <span class="badge badge-green">${item.time}</span>
+          </div>
+          <p><strong>النظام:</strong> ${item.sys}</p>
+          <p><strong>المقر:</strong> ${item.hq}</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn" href="${item.map}" target="_blank" rel="noopener">فتح الخريطة</a>
+          <button class="btn btn-outline" onclick="copyText(${JSON.stringify(shareText)})">نسخ التفاصيل</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function populateCalcZones() {
+  const sys = document.getElementById("calc-system").value;
+  const sel = document.getElementById("calc-zone");
+  const wrap = document.getElementById("calc-zone-wrap");
+  const label = document.getElementById("calc-input-label");
+  const inp = document.getElementById("calc-orders");
+
+  if (sys === "mart-bike") {
+    wrap.style.display = "block";
+    label.textContent = "عدد الأوردرات الأسبوعية";
+    inp.value = 120;
+    sel.innerHTML = `
+      <option value="wide_z1">المناطق الواسعة — منطقة 1 (14.7 ج/أوردر، إجمالي شهري 4,724 ج)</option>
+      <option value="wide_z2">المناطق الواسعة — منطقة 2 (20.2 ج/أوردر، إجمالي شهري 4,724 ج)</option>
+      <option value="wide_z3">المناطق الواسعة — منطقة 3 (25.7 ج/أوردر، إجمالي شهري 4,724 ج)</option>
+      <option value="tagamoa_z1">التجمع والرحاب — منطقة 1 (14.7 ج/أوردر، إجمالي شهري 5,724 ج)</option>
+      <option value="tagamoa_z2">التجمع والرحاب — منطقة 2 (20.2 ج/أوردر، إجمالي شهري 5,724 ج)</option>
+      <option value="tagamoa_z3">التجمع والرحاب — منطقة 3 (25.7 ج/أوردر، إجمالي شهري 5,724 ج)</option>
+    `;
+  } else if (sys === "food-bike") {
+    wrap.style.display = "block";
+    label.textContent = "عدد الأوردرات الأسبوعية";
+    inp.value = 120;
+    sel.innerHTML = foodData.map(d => `<option value="${d.id}">${d.zone} (سعر الأوردر ${d.price} ج)</option>`).join("");
+  } else {
+    wrap.style.display = "none";
+    label.textContent = "عدد الأوردرات الأسبوعية (عجل / وكر)";
+    inp.value = 90;
+  }
+  updateCalc();
+}
+
+function updateCalc() {
+  const sys = document.getElementById("calc-system").value;
+  const orders = Math.max(0, Number(document.getElementById("calc-orders").value) || 0);
+  const out = document.getElementById("calc-output");
+
+  if (sys === "mart-bike") {
+    const zVal = document.getElementById("calc-zone").value;
+    const isTagamoa = zVal.startsWith("tagamoa");
+    const zCode = zVal.split("_")[1];
+    const orderRate = zCode === "z1" ? 14.7 : zCode === "z2" ? 20.2 : 25.7;
+    const monthlyFixed = isTagamoa ? 5724 : 4724;
+    const weeklyService = orders * orderRate;
+    const baseBonusUnit = 10.7;
+    let bonus = 0;
+    if (orders <= 80) bonus = orders * baseBonusUnit * 1;
+    else if (orders <= 100) bonus = orders * baseBonusUnit * 1.4;
+    else bonus = orders * baseBonusUnit * 1.8;
+    const weeklyTotal = weeklyService + bonus;
+    const estMonthly = monthlyFixed + (weeklyTotal * 4);
+    out.innerHTML = `
+      <div class="res-box"><div class="r-title">خدمة الأوردرات الأسبوعية</div><div class="r-val">${weeklyService.toFixed(1)} ج</div></div>
+      <div class="res-box"><div class="r-title">البونص الأسبوعي التقديري</div><div class="r-val">${bonus.toFixed(1)} ج</div></div>
+      <div class="res-box"><div class="r-title">الراتب الثابت الشهري + البدلات</div><div class="r-val">${monthlyFixed.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">تقدير الإجمالي الشهري (4 أسابيع)</div><div class="r-val" style="color:var(--bf-pink)">${estMonthly.toFixed(0)} ج</div></div>
+    `;
+  } else if (sys === "food-bike") {
+    const zId = Number(document.getElementById("calc-zone").value);
+    const d = foodData.find(x => x.id === zId) || foodData[0];
+    const service = orders * d.price;
+    let bonus = 0;
+    if (d.type.includes("أوردرات")) {
+      if (orders >= d.c1) bonus = d.b1;
+      else if (orders >= d.c2) bonus = d.b2;
+      else if (orders >= d.c3) bonus = d.b3;
+    } else {
+      bonus = d.b3;
+    }
+    const weeklyTotal = service + bonus;
+    out.innerHTML = `
+      <div class="res-box"><div class="r-title">عمولة الأوردرات الأسبوعية</div><div class="r-val">${service.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">البونص الأسبوعي (${d.type.includes("أوردرات") ? "حسب الشريحة" : "الحد الأدنى للمستوى 3"})</div><div class="r-val">${bonus.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">إجمالي الدخل الأسبوعي</div><div class="r-val" style="color:var(--bf-pink)">${weeklyTotal.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">تقدير الشهري (4 أسابيع)</div><div class="r-val">${(weeklyTotal * 4).toLocaleString()} ج</div></div>
+    `;
+  } else {
+    let weeklyDelivery = 0;
+    if (orders <= 60) weeklyDelivery = orders * 10;
+    else if (orders <= 80) weeklyDelivery = (60 * 10) + ((orders - 60) * 14);
+    else weeklyDelivery = (60 * 10) + (20 * 14) + ((orders - 80) * 18);
+    const monthlyFixed = 4800;
+    out.innerHTML = `
+      <div class="res-box"><div class="r-title">شرائح التوصيل الأسبوعية</div><div class="r-val">${weeklyDelivery.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">الراتب الأساسي الشهري</div><div class="r-val">${monthlyFixed.toLocaleString()} ج</div></div>
+      <div class="res-box"><div class="r-title">تقدير الشهري (4 أسابيع)</div><div class="r-val" style="color:var(--bf-pink)">${(monthlyFixed + weeklyDelivery * 4).toLocaleString()} ج</div></div>
+    `;
+  }
+}
+
+renderComparison();
+renderFoodTable();
+renderLectures();
+renderCustody();
+populateCalcZones();
+</script>
+</body>
+</html>
