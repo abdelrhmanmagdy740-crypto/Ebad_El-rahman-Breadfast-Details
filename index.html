@@ -934,6 +934,20 @@ function fallbackCopy(text) {
   document.body.removeChild(ta);
 }
 
+function copyLectureByIndex(idx) {
+  const item = (window._lastLectures || [])[idx];
+  if (!item) return;
+  const shareText = `محاضرة بريد فاست (${item.sys === 'Food' ? 'مطاعم' : 'مارت'}) - ${item.title}\nالمقر: ${item.hq}\nالموعد: ${item.time}\nالأيام: ${item.days}\nالعلامة: ${item.mark}\nاللوكيشن: ${item.map}`;
+  copyText(shareText);
+}
+
+function copyCustodyByIndex(idx) {
+  const item = (window._lastCustody || [])[idx];
+  if (!item) return;
+  const shareText = `استلام عهدة بريد فاست (${item.sys}) - ${item.area}\nالمقر: ${item.hq}\nالمواعيد: ${item.time}\nاللوكيشن: ${item.map}`;
+  copyText(shareText);
+}
+
 function copyComparison() {
   const txt = comparisonData.map(r => `• ${r[0]}:\n  - مارت: ${r[1]}\n  - مطاعم: ${r[2]}`).join("\n\n");
   copyText("مقارنة أنظمة بريد فاست (مارت vs مطاعم):\n\n" + txt);
@@ -989,8 +1003,8 @@ function renderLectures() {
     const okQ = !q || item.title.includes(q) || item.hq.includes(q) || item.mark.includes(q);
     return okType && okQ;
   });
-  document.getElementById("lectures-grid").innerHTML = list.map(item => {
-    const shareText = `محاضرة بريد فاست (${item.sys === 'Food' ? 'مطاعم' : 'مارت'}) - ${item.title}\nالمقر: ${item.hq}\nالموعد: ${item.time}\nالأيام: ${item.days}\nالعلامة: ${item.mark}\nاللوكيشن: ${item.map}`;
+  window._lastLectures = list;
+  document.getElementById("lectures-grid").innerHTML = list.map((item, idx) => {
     return `
       <div class="info-card">
         <div>
@@ -1004,7 +1018,7 @@ function renderLectures() {
         </div>
         <div class="card-actions">
           <a class="btn" href="${item.map}" target="_blank" rel="noopener">فتح الخريطة</a>
-          <button class="btn btn-outline" onclick="copyText(${JSON.stringify(shareText)})">نسخ التفاصيل</button>
+          <button type="button" class="btn btn-outline" onclick="copyLectureByIndex(${idx})">نسخ التفاصيل</button>
         </div>
       </div>
     `;
@@ -1014,8 +1028,8 @@ function renderLectures() {
 function renderCustody() {
   const q = document.getElementById("custody-search").value.trim();
   const list = custodyData.filter(item => !q || item.area.includes(q) || item.hq.includes(q) || item.time.includes(q));
-  document.getElementById("custody-grid").innerHTML = list.map(item => {
-    const shareText = `استلام عهدة بريد فاست (${item.sys}) - ${item.area}\nالمقر: ${item.hq}\nالمواعيد: ${item.time}\nاللوكيشن: ${item.map}`;
+  window._lastCustody = list;
+  document.getElementById("custody-grid").innerHTML = list.map((item, idx) => {
     return `
       <div class="info-card">
         <div>
@@ -1028,7 +1042,7 @@ function renderCustody() {
         </div>
         <div class="card-actions">
           <a class="btn" href="${item.map}" target="_blank" rel="noopener">فتح الخريطة</a>
-          <button class="btn btn-outline" onclick="copyText(${JSON.stringify(shareText)})">نسخ التفاصيل</button>
+          <button type="button" class="btn btn-outline" onclick="copyCustodyByIndex(${idx})">نسخ التفاصيل</button>
         </div>
       </div>
     `;
