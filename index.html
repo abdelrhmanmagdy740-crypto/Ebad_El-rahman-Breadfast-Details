@@ -87,13 +87,57 @@
 
     /* Hero */
     .hero {
+      position: relative;
+      overflow: hidden;
       background: linear-gradient(135deg, var(--bf-purple-dark) 0%, var(--bf-purple) 55%, #4C1D95 100%);
       color: #fff;
       padding: 3rem 1.25rem 3.5rem;
     }
     .hero-inner {
+      position: relative;
+      z-index: 2;
       max-width: 1280px;
       margin: 0 auto;
+    }
+    .hero-side-logo {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+    }
+    .hero-side-logo.right {
+      right: 18px;
+    }
+    .hero-side-logo.left {
+      left: 18px;
+    }
+    .hero-side-logo img {
+      max-width: 92px;
+      max-height: 92px;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+    .hero-side-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #FDE68A;
+      letter-spacing: 0.2px;
+    }
+    @media (max-width: 1180px) {
+      .hero-side-logo { display: none; }
     }
     .hero h1 {
       font-size: clamp(1.7rem, 3.5vw, 2.6rem);
@@ -382,6 +426,16 @@
 </nav>
 
 <header class="hero">
+  <!-- اللوجو الجانبي الأيمن -->
+  <div class="hero-side-logo right" aria-hidden="true">
+    <img id="rightSideLogoImg" src="A_M_K-Logo.png" alt="A_M_K Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
+    <span class="hero-side-tag">لوجو يمين</span>
+  </div>
+  <!-- اللوجو الجانبي الأيسر -->
+  <div class="hero-side-logo left" aria-hidden="true">
+    <img id="leftSideLogoImg" src="Breadfast_Logo.jpg" alt="Breadfast Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
+    <span class="hero-side-tag">لوجو يسار</span>
+  </div>
   <div class="hero-inner">
     <h1>منصة تفاصيل التعيين والمرتبات والمقرات — بريد فاست</h1>
     <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل، المطاعم موتوسيكل، المارت عجل وووكر)، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
@@ -904,6 +958,14 @@ const custodyData = [
   { area: "الإسكندرية", sys: "المطاعم - Food", hq: "فرع لوران - شارع الإقبال أول شمال شارع اسمه محمد عثمان أول ما يدخل هيلاقي على شماله الفرع", time: "السبت & الأربعاء", map: "https://maps.app.goo.gl/8yKjnE2ogNoKxraWA" }
 ];
 
+
+function setSideLogos(rightUrl, leftUrl) {
+  const rImg = document.getElementById("rightSideLogoImg");
+  const lImg = document.getElementById("leftSideLogoImg");
+  if (rImg && rightUrl) { rImg.src = rightUrl; rImg.style.display = "block"; }
+  if (lImg && leftUrl) { lImg.src = leftUrl; lImg.style.display = "block"; }
+}
+
 function showToast(msg) {
   const t = document.getElementById("toast");
   t.textContent = msg;
@@ -933,6 +995,7 @@ function fallbackCopy(text) {
   }
   document.body.removeChild(ta);
 }
+
 
 function copyLectureByIndex(idx) {
   const item = (window._lastLectures || [])[idx];
