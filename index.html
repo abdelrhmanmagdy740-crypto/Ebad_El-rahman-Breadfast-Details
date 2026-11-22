@@ -165,9 +165,38 @@
         height: 142px;
       }
     }
+    .hero-logos-row {
+      display: contents;
+    }
     @media (max-width: 1180px) {
-      .hero { padding: 3rem 1.25rem 3.5rem; }
-      .hero-side-logo { display: none; }
+      .hero {
+        padding: 2rem 1rem 2.5rem;
+      }
+      .hero-logos-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        z-index: 3;
+      }
+      .hero-side-logo,
+      .hero-side-logo.right,
+      .hero-side-logo.left {
+        position: static;
+        transform: none;
+        width: 118px;
+        height: 118px;
+        border-radius: 22px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        flex-shrink: 0;
+      }
+      .hero-side-logo img {
+        width: 92px !important;
+        height: 92px !important;
+        border-radius: 14px;
+      }
     }
     .hero-inner {
       position: relative;
@@ -490,19 +519,19 @@
 </nav>
 
 <header class="hero">
-  <!-- اللوجو الجانبي الأيمن: ضع رابط الصورة في src -->
-  <div class="hero-side-logo right" aria-hidden="true">
-    <img id="rightSideLogoImg" src="A_M_K-Logo.png" alt="A_M_K Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
-    <span class="hero-side-tag">لوجو يمين</span>
-  </div>
-  <!-- اللوجو الجانبي الأيسر: ضع رابط الصورة في src -->
-  <div class="hero-side-logo left" aria-hidden="true">
-    <img id="leftSideLogoImg" src="Breadfast_Logo.jpg" alt="Breadfast Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
-    <span class="hero-side-tag">لوجو يسار</span>
+  <div class="hero-logos-row">
+    <!-- اللوجو الجانبي الأيمن -->
+    <div class="hero-side-logo right" aria-hidden="true">
+      <img id="rightSideLogoImg" src="A_M_K-Logo.png" alt="A_M_K Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
+    </div>
+    <!-- اللوجو الجانبي الأيسر -->
+    <div class="hero-side-logo left" aria-hidden="true">
+      <img id="leftSideLogoImg" src="Breadfast_Logo.jpg" alt="Breadfast Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
+    </div>
   </div>
   <div class="hero-inner">
     <h1>منصة تفاصيل التعيين والمرتبات والمقرات — بريد فاست</h1>
-    <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل، المطاعم موتوسيكل، المارت عجل و وكر )، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
+    <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل، المطاعم موتوسيكل، المارت عجل وووكر)، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="label">المارت (موتوسيكل)</div>
