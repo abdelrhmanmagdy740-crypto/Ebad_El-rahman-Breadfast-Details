@@ -6,7 +6,7 @@
   <title>منصة بريد فاست (Breadfast) — دليل التعيين والمرتبات والمقرات</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bf-purple: #2B0E4A;
@@ -78,6 +78,34 @@
       font-size: 0.92rem;
       font-weight: 600;
       transition: 0.2s;
+    }
+    .nav-sig {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1.25;
+      padding: 0.25rem 0.85rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(253, 230, 138, 0.35);
+    }
+    .nav-sig-wish {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #FDE68A;
+    }
+    .nav-sig-name {
+      font-family: 'Aref Ruqaa', 'Cairo', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    @media (max-width: 900px) {
+      .nav-sig {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
     }
     .nav-links a:hover {
       background: rgba(255,255,255,0.12);
@@ -410,6 +438,27 @@
     }
     .toast.show { opacity: 1; transform: translateY(0); }
 
+    .sig-box {
+      background: linear-gradient(135deg, #FAF5FF, #FDF2F8);
+      border: 1.5px solid #E9D5FF;
+      border-right: 5px solid var(--bf-pink);
+      border-radius: 16px;
+      padding: 1.35rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .sig-wish {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--bf-purple);
+      margin-bottom: 0.35rem;
+    }
+    .sig-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--bf-pink);
+    }
     footer {
       background: var(--bf-purple-dark);
       color: #CBD5E1;
@@ -433,23 +482,27 @@
       <a href="#lectures">المحاضرات</a>
       <a href="#custody">استلام العهدة</a>
     </div>
+    <div class="nav-sig" aria-label="إمضاء">
+      <span class="nav-sig-wish">مع تمنياتي بداوم التوفيق و السداد 🤍</span>
+      <span class="nav-sig-name">مهندس / عبدالرحمن مجدي</span>
+    </div>
   </div>
 </nav>
 
 <header class="hero">
-  <!-- اللوجو الجانبي الأيمن -->
+  <!-- اللوجو الجانبي الأيمن: ضع رابط الصورة في src -->
   <div class="hero-side-logo right" aria-hidden="true">
     <img id="rightSideLogoImg" src="A_M_K-Logo.png" alt="A_M_K Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
     <span class="hero-side-tag">لوجو يمين</span>
   </div>
-  <!-- اللوجو الجانبي الأيسر -->
+  <!-- اللوجو الجانبي الأيسر: ضع رابط الصورة في src -->
   <div class="hero-side-logo left" aria-hidden="true">
     <img id="leftSideLogoImg" src="Breadfast_Logo.jpg" alt="Breadfast Logo" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" onerror="this.style.display='none'" />
     <span class="hero-side-tag">لوجو يسار</span>
   </div>
   <div class="hero-inner">
     <h1>منصة تفاصيل التعيين والمرتبات والمقرات — بريد فاست</h1>
-    <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل ، المطاعم موتوسيكل ، المارت عجل و وكر)، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
+    <p>دليل شامل وتفاعلي يجمع كافة أنظمة العمل (المارت موتوسيكل، المطاعم موتوسيكل، المارت عجل وووكر)، شرائح البونص والعمولات، مواعيد وأماكن المحاضرات، ومواقع استلام العهدة مع إمكانية النسخ السريع لرسائل واتساب.</p>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="label">المارت (موتوسيكل)</div>
@@ -888,6 +941,12 @@
   </section>
 
 </main>
+
+  <!-- Signature Box -->
+  <section class="sig-box" aria-label="إمضاء">
+    <p class="sig-wish">مع تمنياتي بداوم التوفيق و السداد 🤍</p>
+    <p class="sig-name">مهندس / عبدالرحمن مجدي</p>
+  </section>
 
 <footer>
   منصة بريد فاست (Breadfast) التفاعلية — جميع البيانات مستخرجة من ملف تفاصيل التعيين والرواتب والمقرات.
